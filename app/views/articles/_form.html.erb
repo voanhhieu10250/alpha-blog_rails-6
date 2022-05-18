@@ -11,6 +11,12 @@
           <%= f.label :description, class: "form-label text-light" %><br/>
           <%= f.text_area :description, rows: 8, class: "form-control shadow rounded", placeholder: "Description of article" %>
         </div>
+        <div class="mb-3">
+          <%= f.label :category, class: "form-label text-light" %><br/>
+          <%= f.collection_select(:category_ids, Category.all, :id, :name, 
+                                  { prompt: "Make your selection from the list below (can be empty)" }, 
+                                  { multiple: true, class: "form-select shadow rounded" })%>
+        </div>
         <div class="row justify-content-center mb-3" >
           <%= f.submit class: "btn btn-outline-light btn-lg col-3" %>
         </div>
